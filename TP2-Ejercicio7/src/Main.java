@@ -24,20 +24,17 @@ public class Main {
 		sc.nextLine();
 
 		if (edad >= 18 && edad <= 35) {
-			if (edad > 32 && (experiencia > 6))
-				System.out.println("El solicitante " + nombre + " fue aceptado");
-			else if (experiencia < 3 && (remuneracion < 50000))
+			if (edad > 32 && (experiencia > 6) || (edad < 32) || (experiencia < 3 && (remuneracion < 50000)) || ((edad >=33 && edad <=35) && (experiencia>=6)))
 				System.out.println("El solicitante " + nombre + " fue aceptado");
 			else if (edad >= 32 && ((experiencia < 6) && (experiencia > 3)))
 				System.out.println("El solicitante " + nombre + " fue aceptado en forma condicional");
-			else if ((edad >=33 && edad <=35) && (experiencia>=6))
-				System.out.println("El solicitante " + nombre + " fue aceptado");
-			else if (edad < 32)
-				System.out.println("El solicitante " + nombre + " fue aceptado");
+			else if ( edad<33 )
+			System.out.println("pepe");
 			else
 				System.out.println("El solicitante " + nombre + " fue rechazado");
 		} else
 			System.out.println("El solicitante " + nombre + " fue rechazado");
+		
 
 	}
 
