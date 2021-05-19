@@ -1,65 +1,44 @@
-
-
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("###,###.##");
 
-		int numEnt;
-		int numEnt2;
-		int numEnt3;
-		int suma;
-		int promedio;
+		int edad;  
+		int experiencia;
+		int remuneracion;
+		String sn;
+		String nombre;
 
-		System.out.println("Ingrese el primer número entre 100 y 999");
-		numEnt = solicitarEnteroPorTeclado(sc);
-		numEnt = fueraderango(sc, numEnt);
-		System.out.println("Ingrese el segundo número entre 100 y 999");
-		numEnt2 = solicitarEnteroPorTeclado(sc);
-		numEnt2 = fueraderango(sc, numEnt2);
-		System.out.println("Ingrese el tercer número entre 100 y 999");
-		numEnt3 = solicitarEnteroPorTeclado(sc);
-		numEnt3 = fueraderango(sc, numEnt3);
+		System.out.println("Ingrese el nombre del solicitante");
+		nombre = sc.nextLine();
+		System.out.println("Ingrese la edad del solicitante");
+		edad = sc.nextInt();
+		System.out.println("Ingrese la experiencia del solicitante");
+		experiencia = sc.nextInt();
+		System.out.println("Ingrese la remuneración pretendida del solicitante");
+		remuneracion = sc.nextInt();
+		sc.nextLine();
 
-		suma = suma(numEnt, numEnt2, numEnt3);
-		promedio(suma);
-		porcentajeDelPrimerNum(numEnt, suma);
+		if (edad >= 18 && edad <= 35) {
+			if (edad > 32 && (experiencia > 6))
+				System.out.println("El solicitante " + nombre + " fue aceptado");
+			else if (experiencia < 3 && (remuneracion < 50000))
+				System.out.println("El solicitante " + nombre + " fue aceptado");
+			else if (edad >= 32 && ((experiencia < 6) && (experiencia > 3)))
+				System.out.println("El solicitante " + nombre + " fue aceptado en forma condicional");
+			else if ((edad >=33 && edad <=35) && (experiencia>=6))
+				System.out.println("El solicitante " + nombre + " fue aceptado");
+			else if (edad < 32)
+				System.out.println("El solicitante " + nombre + " fue aceptado");
+			else
+				System.out.println("El solicitante " + nombre + " fue rechazado");
+		} else
+			System.out.println("El solicitante " + nombre + " fue rechazado");
 
-	}
-
-	private static void porcentajeDelPrimerNum(int numEnt, int suma) {
-		int porcentaje = numEnt * 100 / suma;
-		System.out.println(porcentaje + "%");
-	}
-
-	private static void promedio(int suma) {
-		int promedio;
-		promedio = suma / 3;
-		System.out.println(promedio);
-	}
-
-	private static int suma(int numEnt, int numEnt2, int numEnt3) {
-		int suma;
-		suma = numEnt + numEnt2 + numEnt3;
-		System.out.println(suma);
-		return suma;
-	}
-
-	private static int solicitarEnteroPorTeclado(Scanner sc) {
-		int numEnt;
-		numEnt = sc.nextInt();
-		return numEnt;
-	}
-
-	private static int fueraderango(Scanner sc, int num) {
-		while ((num < 100) || (num > 999)) {
-			System.out.println("Vuelva a ingresar el número");
-			num = solicitarEnteroPorTeclado(sc);
-		}
-		return num;
 	}
 
 }
