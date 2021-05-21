@@ -28,6 +28,7 @@ public class Main {
 			valorAuto = (Math.random() * ((5000000 - 1000000) + 1)) + 1000000;
 			if (nroPatente < 1000000) {
 				montoAPagar = valorAuto * 0.05;
+
 				System.out.println("Su auto es de: $" + df.format(valorAuto)
 						+ " \tPagará el 5% del valor de su modelo y es de: $" + df.format(montoAPagar));
 			} else if ((nroPatente > 1000000) && (nroPatente < 2000000)) {
