@@ -38,7 +38,6 @@ public class Main {
 				montoAPagar = valorAuto * 0.15;
 				System.out.println("Su auto es de: $" + df.format(valorAuto)
 						+ " \tPagará el 15% del valor de su modelo y es de: $" + df.format(montoAPagar));
-
 			} else {
 				System.out.println("El monto es demasiado bajo para un automotor");
 			}
