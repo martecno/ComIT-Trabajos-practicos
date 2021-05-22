@@ -135,5 +135,4 @@ public class MainApp {
 		Double valor = scan.nextDouble();
 		return valor;
 	}
-
 }
