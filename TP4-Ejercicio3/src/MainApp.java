@@ -15,50 +15,92 @@ public class MainApp {
 
 		sn = "s";
 
+		whileCompleto(sc, sn);
+
+		System.out.println("\nSe terminaron de calcular las areas solicitadas");
+
+	}
+
+	private static void whileCompleto(Scanner sc, String sn) {
 		while ("s".equalsIgnoreCase(sn)) {
 
 			int opcion = opcionDeFigura(sc);
 			opcion = comprobarValorDeLaOpcion(sc, opcion);
 
-			switch (opcion) {
-			case 1:
-				radio = solicitarIntPorTeclado("Ingrese el rádio");
-				area = Math.PI * (radio * radio);
-				area(area);
-				break;
-			case 2:
-				base1 = solicitarIntPorTeclado("Ingrese la base en cm");
-				area = (base1 * base1);
-				area(area);
-				break;
-			case 3:
-				base1 = solicitarIntPorTeclado("Ingrese la base en cm");
-				altura = solicitarIntPorTeclado("Ingrese la altura en cm");
-				area = (base1 * altura);
-				area(area);
-				break;
-			case 4:
-				base1 = solicitarIntPorTeclado("Ingrese la base en cm");
-				altura = solicitarIntPorTeclado("Ingrese la altura en cm");
-				area = (base1 * altura) / 2;
-				area(area);
-				break;
-			case 5:
-				base1 = solicitarIntPorTeclado("Ingrese la base menor en cm");
-				base2 = solicitarIntPorTeclado("Ingrese la base mayor en cm");
-				altura = solicitarIntPorTeclado("Ingrese la altura en cm");
-				area = ((base1 + base2) / 2) * altura;
-				area(area);
-				break;
-			default:
-				break;
-			}
+			switchCompleto(opcion);
 			sc.nextLine();
 			sn = deseaCalcularAreas(sc);
 		}
+	}
 
-		System.out.println("\nSe terminaron de calcular las areas solicitadas");
+	private static void switchCompleto(int opcion) {
+		switch (opcion) {
+		case 1:
+			circulo();
+			break;
+		case 2:
+			cuadrado();
+			break;
+		case 3:
+			rectangulo();
+			break;
+		case 4:
+			triangulo();
+			break;
+		case 5:
+			trapecio();
+			break;
+		default:
+			break;
+		}
+	}
 
+	private static void trapecio() {
+		Double base1;
+		Double base2;
+		Double altura;
+		Double area;
+		base1 = solicitarIntPorTeclado("Ingrese la base menor en cm");
+		base2 = solicitarIntPorTeclado("Ingrese la base mayor en cm");
+		altura = solicitarIntPorTeclado("Ingrese la altura en cm");
+		area = ((base1 + base2) / 2) * altura;
+		area(area);
+	}
+
+	private static void triangulo() {
+		Double base1;
+		Double altura;
+		Double area;
+		base1 = solicitarIntPorTeclado("Ingrese la base en cm");
+		altura = solicitarIntPorTeclado("Ingrese la altura en cm");
+		area = (base1 * altura) / 2;
+		area(area);
+	}
+
+	private static void rectangulo() {
+		Double base1;
+		Double altura;
+		Double area;
+		base1 = solicitarIntPorTeclado("Ingrese la base en cm");
+		altura = solicitarIntPorTeclado("Ingrese la altura en cm");
+		area = (base1 * altura);
+		area(area);
+	}
+
+	private static void cuadrado() {
+		Double base1;
+		Double area;
+		base1 = solicitarIntPorTeclado("Ingrese la base en cm");
+		area = (base1 * base1);
+		area(area);
+	}
+
+	private static void circulo() {
+		Double radio;
+		Double area;
+		radio = solicitarIntPorTeclado("Ingrese el rádio");
+		area = Math.PI * (radio * radio);
+		area(area);
 	}
 
 	private static int comprobarValorDeLaOpcion(Scanner sc, int opcion) {
