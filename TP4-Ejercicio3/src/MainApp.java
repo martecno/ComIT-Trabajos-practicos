@@ -6,11 +6,7 @@ public class MainApp {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		Double radio = 0.0;
-		Double base1 = 0.0;
-		Double base2 = 0.0;
-		Double altura = 0.0;
-		Double area = 0.0;
+		Double radio = 0.0, base1 = 0.0, base2 = 0.0, altura = 0.0, area = 0.0;
 		String sn;
 
 		sn = "s";
